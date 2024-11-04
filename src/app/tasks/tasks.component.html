@@ -1,0 +1,24 @@
+<section id="tasks">
+
+  <header id="tasks-header">
+    <div class="e">
+      <h2 class="name">{{user.name}}</h2>
+      <img id="task-image" [src]="getImg" [alt]="user.name">
+    </div>
+    <menu>
+      <button (click)="onMakeClick()">
+        Add Task
+      </button>
+    </menu>
+    @if (showForm) {
+    <app-create-task [userID]="userID" (close)="onCancelAddTask()" />
+    }
+  </header>
+
+  <ul>
+    @for  (task of selectedUserTasks; track task.id) {
+    <li><app-task [task]="task" [user]="user"/></li>
+    }
+  </ul>
+</section>
+

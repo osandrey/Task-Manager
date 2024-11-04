@@ -1,0 +1,35 @@
+<!--<app-header />-->
+
+<!--<main>-->
+<!--  <ul id="users">-->
+<!--&lt;!&ndash;    @for (user of users; track user.id) {&ndash;&gt;-->
+<!--    <li *ngFor="let user of users">-->
+<!--      <app-user [user]="user"  (select)="onSelectUser($event)"/>-->
+<!--    </li>-->
+<!--&lt;!&ndash;    }&ndash;&gt;-->
+<!--  </ul>-->
+<!--&lt;!&ndash;  @if (selectedUser) {&ndash;&gt;-->
+<!--    <app-tasks *ngIf="selectedUser; else fallback" [user]="selectedUser"/>-->
+<!--&lt;!&ndash;  } @else {&ndash;&gt;-->
+<!--    <ng-template #fallback>-->
+<!--    <p id="fallback">Select a User</p>-->
+<!--    </ng-template>-->
+<!--&lt;!&ndash;  }&ndash;&gt;-->
+<!--</main>-->
+
+<app-header />
+
+<main>
+  <ul id="users">
+        @for (user of users; track user.id) {
+    <li>
+      <app-user [user]="user" [selected]="user.id === selectedUserID" (select)="onSelectUser($event)"/>
+    </li>
+        }
+  </ul>
+    @if (selectedUser) {
+  <app-tasks [userID]="selectedUser.id" [user]="selectedUser"/>
+    } @else {
+    <p id="fallback">Select a User</p>
+    }
+</main>
