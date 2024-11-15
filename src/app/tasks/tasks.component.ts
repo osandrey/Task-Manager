@@ -1,6 +1,5 @@
 import {Component, computed, Input, input} from '@angular/core';
-import {TaskComponent} from './task/task.component';
-import {CreateTaskComponent} from './task/create-task/create-task.component';
+
 import {type newTask} from './task/create-task/create-task.model';
 import {TasksService} from './tasks.service';
 
@@ -12,8 +11,7 @@ interface User {
 
 @Component({
   selector: 'app-tasks',
-  standalone: true,
-  imports: [TaskComponent, CreateTaskComponent],
+  standalone: false,
   templateUrl: './tasks.component.html',
   styleUrl: './tasks.component.scss'
 })
